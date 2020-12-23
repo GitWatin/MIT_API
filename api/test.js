@@ -3,9 +3,8 @@ var con = require('db_connection.js');
 
 con.connect(function(err) {
     if (err) throw err;
-    console.log("Connected!");
-    con.query("CREATE DATABASE mydb", function (err, result) {
+    con.query("SELECT * FROM customers", function (err, result, fields) {
       if (err) throw err;
-      console.log("Database created");
+      console.log(result);
     });
   });
