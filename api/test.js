@@ -1,4 +1,4 @@
-var con = require('db_connection.js');
+var con = require('./db_connection.js');
 
 
 con.connect(function(err) {
