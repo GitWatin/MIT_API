@@ -1,4 +1,4 @@
 [
-	{"firstname": "John", "lastname":"Smith", "mat": 42},
-	{"firstname": "Pierre", "lastname":"Dupond", "mat": 8}
+	{"firstname": "John", "lastname":"Smith", "id_student": 42},
+	{"firstname": "Pierre", "lastname":"Dupond", "id_student": 8}
 ]
