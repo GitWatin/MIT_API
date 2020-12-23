@@ -2,7 +2,7 @@ var db		= require('../db.json')
 
 module.exports = {
 	getResults:	function(req, res){
-                        print("Toto");					},
+                       console.log("Han ouais")					},
 	getDetails:	function(req, res){
 						res.json(db);
 					},
