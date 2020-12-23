@@ -4,7 +4,8 @@ var con = mysql.createConnection({
     host: "mit.watin.be",
     user: "valentin",
     password: "Test123*",
-    database: "mit_api"
+    database: "mit_api",
+    insecuredAuth : true
   });
 
 con.connect(function(err) {
