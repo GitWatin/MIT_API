@@ -1,5 +1,7 @@
 var db		= require('../db.json')
-
+var mysql = require('mysql');
+var config = require('./config/db_connection.js');
+var con = mysql.createConnection(config.databaseConnect);
 
 
 
