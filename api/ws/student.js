@@ -5,12 +5,12 @@ var db		= require('../db.json')
 
 module.exports = {
 	getResults:	function(req, res){
-
+						res.send('blabla');
 						con.connect(function(err) {
 							if (err) throw err;
 							con.query("SELECT * FROM people", function (err, result, fields) {
 							if (err) throw err;
-							res.send(result);
+							
 							//console.log(result);
 							});
 						});
