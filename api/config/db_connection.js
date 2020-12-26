@@ -1,4 +1,16 @@
-var mysql = require('mysql');
+module.exports.databaseConnect = {
+  
+  host     : 'mit.watin.be',
+  database : 'mit_api',
+  user     : 'valentin',
+  password : 'Test123*',
+  port     : '3306'
+};
+
+
+
+
+/*var mysql = require('mysql');
 
 var con = mysql.createConnection({
     host: "mit.watin.be",
@@ -13,4 +25,4 @@ con.connect(function(err) {
   console.log("Connected!");
 });
 
-module.exports = connect;
+module.exports = connect;*/
