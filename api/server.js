@@ -2,7 +2,7 @@ var express	= require('express');
 var router	= express.Router();
 
 var student	= require('./ws/student')
-
+//test
 
 var app = express();
 // GET(récuper)
