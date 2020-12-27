@@ -7,15 +7,15 @@ var con = mysql.createConnection(config.databaseConnect);
 
 module.exports = {
 	getResults:	function(req, res){
-						res.send(req.params.student_id);
-						/*con.connect(function(err) {
+						res.send('ID : '+req.params.student_id);
+						con.connect(function(err) {
 							if (err) throw err;
-							con.query("SELECT * FROM people WHERE id="+res.params.id, function (err, result, fields) {
+							con.query("SELECT * FROM people WHERE id="+req.params.student_id, function (err, result, fields) {
 							if (err) throw err;
 							res.send(result);
 							console.log(result);
 							});
-						});*/
+						});
                     },
 
 	getDetails:	function(req, res){
