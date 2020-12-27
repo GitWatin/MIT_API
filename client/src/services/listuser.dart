@@ -7,7 +7,7 @@ import 'dart:convert' as convert;
 
     print("Listing user en cours");
     
-    var url = 'http://mit.watin.be:8080/api/student/listuser/';
+    var url = 'http://mit.watin.be:8080/student/listuser/';
     var response = await http.get(url);
 
     if (response.statusCode == 200) {
