@@ -12,10 +12,12 @@ module.exports = {
 							if (err) throw err;
 							con.query("SELECT nom FROM people WHERE id="+req.params.student_id, function (err, result, fields) {
 							if (err) throw err;
-							res.send(result);
-							console.log(result);
-							con.end()
+							
+							con.release();
 							});
+							console.log(result);
+							res.send(result);
+
 						});
                     },
 
