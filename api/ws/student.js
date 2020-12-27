@@ -14,6 +14,7 @@ module.exports = {
 							if (err) throw err;
 							res.send(result);
 							console.log(result);
+							con.end()
 							});
 						});
                     },
