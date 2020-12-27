@@ -12,7 +12,7 @@ var app = express();
 // DELETE(supprimer)
 
 router.get(
-				'/student/liststudent/',
+				'/student/listuser/',
 			  student.getStudent
 );
 router.post(
