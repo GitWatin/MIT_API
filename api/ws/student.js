@@ -7,16 +7,24 @@ var con = mysql.createConnection(config.databaseConnect);
 
 module.exports = {
 	getResults:	function(req, res){
-							con.query("SELECT nom FROM people WHERE id="+req.params.student_id, function (err, result, fields) {
-							console.log(result);
-							res.send(result);
-							});
+							
 							
 
                     },
 
 	getDetails:	function(req, res){
-						res.json(db);
+				con.query("SELECT * FROM people WHERE id="+req.params.student_id, function (err, result, fields) {
+				//console.log(result);
+				if(result==null)
+				{
+					res.send("Etudiant inexistant");
+				}
+				else
+				{
+					res.send(result);
+				}
+				
+				});
 					},
 	setResults:	function(req, res){
 					},
