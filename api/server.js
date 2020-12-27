@@ -12,8 +12,8 @@ var app = express();
 // DELETE(supprimer)
 
 router.get(
-				'/student/:student_id',
-			  student.getDetails
+				'/student/liststudent/',
+			  student.getStudent
 );
 router.post(
 				'/student/:student_id',

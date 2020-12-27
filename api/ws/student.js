@@ -21,15 +21,28 @@ module.exports = {
 				}
 				else
 				{
-					res.send(result[0]);
+					res.send(result);
 				}
 				
 				});
 					},
 	setResults:	function(req, res){
+
+
 					},
+	GetStudent: function(req, res){
+		con.query("SELECT * FROM people WHERE id="+req.params.student_id, function (err, results, fields) 
+			{
+				console.log(result);
+				res.send(results);
+			});
+
+	},
 	setDetails:	function(req, res){
 					},
 	create:		function(req, res){
+
+					
+
 					}
 }
