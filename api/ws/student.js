@@ -34,8 +34,9 @@ module.exports = {
 	getStudent: function(req, res){
 		con.query("SELECT * FROM people", function (err, results, fields) 
 			{
-				console.log(results);
+				
 				results = results.map(v => Object.assign({}, v));
+				console.log(results);
 				res.send(results);
 			});
 
