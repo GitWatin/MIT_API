@@ -35,6 +35,7 @@ module.exports = {
 		con.query("SELECT * FROM people", function (err, results, fields) 
 			{
 				console.log(results);
+				results = results.map(v => Object.assign({}, v));
 				res.send(results);
 			});
 

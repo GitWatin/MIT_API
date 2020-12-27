@@ -13,7 +13,7 @@ import 'dart:convert' as convert;
     if (response.statusCode == 200) {
     var jsonResponse = convert.jsonDecode(response.body);
     var itemCount = jsonResponse['totalItems'];
-    print('Number of books about http: $itemCount.');
+    print(itemCount);
   } else {
     print('Request failed with status: ${response.statusCode}.');
   }
