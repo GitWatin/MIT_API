@@ -30,7 +30,8 @@ module.exports = {
 
 
 					},
-	GetStudent: function(req, res){
+	
+	getStudent: function(req, res){
 		con.query("SELECT * FROM people WHERE id="+req.params.student_id, function (err, results, fields) 
 			{
 				console.log(result);
