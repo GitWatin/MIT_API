@@ -10,7 +10,7 @@ module.exports = {
 						//res.send('ID : '+req.params.student_id);
 						con.connect(function(err) {
 							if (err) throw err;
-							con.query("SELECT * FROM people WHERE id="+req.params.student_id, function (err, result, fields) {
+							con.query("SELECT nom FROM people WHERE id="+req.params.student_id, function (err, result, fields) {
 							if (err) throw err;
 							res.send(result);
 							console.log(result);
