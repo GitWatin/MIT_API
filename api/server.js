@@ -2,7 +2,7 @@ var express	= require('express');
 var router	= express.Router();
 
 var student	= require('./ws/student')
-var student	= require('./ws/student_gcc')
+//var student	= require('./ws/student_gcc')
 //test
 
 var app = express();
