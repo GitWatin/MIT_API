@@ -15,7 +15,7 @@ module.exports = {
 	getDetails:	function(req, res){
 				con.query("SELECT * FROM people WHERE id="+req.params.student_id, function (err, result, fields) {
 				//console.log(result);
-				if(result==null)
+				if(result==0)
 				{
 					res.send("Etudiant inexistant");
 				}
