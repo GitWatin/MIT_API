@@ -8,14 +8,9 @@ import 'services/listuser.dart';
 Cli()
 {
 
-   print("Available commands:");
-          print("   help        - display help");
-          print("   createuser  - create user");
-          print("   deleteuser  - delete existing user");
-          print("   alteruser   - alter existing user");
-          print("   listuser - list existing users");
-          print("   exit        - exit the application");
-
+   
+  help();
+  print("Veuillez saisir l'opération")
   var choice = stdin.readLineSync(); 
   
    switch(choice) { 
@@ -31,11 +26,22 @@ Cli()
       case "deleteuser": {  print("Poor"); } 
       break; 
 
-      case "help": {  print("Poor"); } 
+      case "help": {  help(); } 
       break; 
      
       default: { print("Invalid choice"); } 
       break; 
    } 
 
+}
+
+help()
+{
+  print("Available commands:");
+          print("   help        - display help");
+          print("   createuser  - create user");
+          print("   deleteuser  - delete existing user");
+          print("   alteruser   - alter existing user");
+          print("   listuser - list existing users");
+          print("   exit        - exit the application");
 }
