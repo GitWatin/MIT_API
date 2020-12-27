@@ -21,7 +21,7 @@ module.exports = {
 				}
 				else
 				{
-					res.send(result.nom);
+					res.send(result[0]);
 				}
 				
 				});
