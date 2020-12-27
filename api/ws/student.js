@@ -7,7 +7,7 @@ var con = mysql.createConnection(config.databaseConnect);
 
 module.exports = {
 	getResults:	function(req, res){
-						res.send(res.params.id);
+						res.send(res.params.student_id);
 						/*con.connect(function(err) {
 							if (err) throw err;
 							con.query("SELECT * FROM people WHERE id="+res.params.id, function (err, result, fields) {
