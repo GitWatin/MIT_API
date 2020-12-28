@@ -10,7 +10,7 @@ Cli()
 
    
   help();
-  print("Veuillez saisir l'opération")
+  print("Veuillez saisir l'opération");
   var choice = stdin.readLineSync(); 
   
    switch(choice) { 
