@@ -1,21 +1,36 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "main": "src/main.js",
+  "extends": "src/main.js",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "method-override": "^3.0.0",
-    "morgan": "^1.10.0"
+    "mysql": "^2.18.1",
+    "pino": "^6.8.0",
+    "pino-http": "^5.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
+    "nodemon": "^2.0.6",
+    "pino-pretty": "^4.3.0",
+    "prettier": "2.2.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "NODE_ENV=development nodemon src/main.js",
+    "lint": "eslint src/*.js",
+    "prettier:lint": "prettier --check .",
+    "prettier:format": "prettier --write .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production node src/main.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": ""
 }
