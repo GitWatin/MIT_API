@@ -1,5 +1,6 @@
 var db		= require('../db.json')
 var mysql = require('mysql');
+var app = express();
 var config = require('../config/db_connection.js');
 var con = mysql.createConnection(config.databaseConnect);
 
@@ -37,7 +38,7 @@ module.exports = {
 				
 				//results = results.map(v => Object.assign({}, v));
 				console.log(results);
-				res.send(results);
+				res.send(JSON.stringify(results));
 			});
 
 	},
