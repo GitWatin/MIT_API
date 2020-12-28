@@ -1,6 +1,6 @@
 //import 'dart:html';
 import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
+import 'dart:convert';
 import 'dart:io';
 
 
@@ -24,14 +24,14 @@ createuser() async
       'status' : status
     };
 
-    String body = convert.jsonEncode(data);
+    String body = json.encode(data);
 
     var url_tosend = 'http://mit.watin.be:8080/student/';
 
     var response = await http.post(
       url_tosend,
       headers: {"Content-Type": "application/json"},
-      body: body,
+      body: body
       );
 
     if (response.statusCode == 200) 
