@@ -48,6 +48,7 @@ module.exports = {
 
 					const item = req.body;
 					console.log(item);
+					res.send('coucou');
 
 					}
 }
