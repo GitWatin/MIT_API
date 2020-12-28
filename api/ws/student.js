@@ -45,9 +45,11 @@ module.exports = {
 	setDetails:	function(req, res){
 					},
 	create:		function(req, res){
-
+					
+					console.log(req.body);
 					const item = req.body;
-					console.log(item)
+					
+					console.log(item);
 					const obj = JSON.parse(item);
 					console.log(obj.nom);
 					res.send('coucou');
