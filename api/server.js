@@ -27,7 +27,7 @@ router.post(
 				'/student/:student_id/results',
 			  student.setResults
 );
-router.put(
+router.post(
 				'/student',
 			  student.create
 );
