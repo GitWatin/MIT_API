@@ -1,6 +1,6 @@
-var db		= require('../db.json')
+var db	= require('../db.json')
 var mysql = require('mysql');
-var app = express();
+//var app = express();
 var config = require('../config/db_connection.js');
 var con = mysql.createConnection(config.databaseConnect);
 
