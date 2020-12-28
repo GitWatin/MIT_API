@@ -30,9 +30,9 @@ createuser() async
 
     var response = await http.post(
       url_tosend,
-      headers: {"Content-Type": "application/json"},
-      body: body,
+      body: 'toto',
       );
+      
     print(body);
     if (response.statusCode == 200) 
     {
