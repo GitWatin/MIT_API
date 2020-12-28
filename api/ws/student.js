@@ -49,7 +49,7 @@ module.exports = {
 					console.log(req.body);
 					const item = req.body;
 					
-					console.log(item);
+					console.log(item['nom']);
 					const obj = JSON.parse(item);
 					console.log(obj.nom);
 					res.send('coucou');
