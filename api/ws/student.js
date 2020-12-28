@@ -47,6 +47,7 @@ module.exports = {
 	create:		function(req, res){
 
 					const item = req.body;
+					console.log(item)
 					const obj = JSON.parse(item);
 					console.log(obj.nom);
 					res.send('coucou');
