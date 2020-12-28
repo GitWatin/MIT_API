@@ -46,7 +46,8 @@ module.exports = {
 					},
 	create:		function(req, res){
 
-					
+					const item = req.body;
+					console.log(item);
 
 					}
 }

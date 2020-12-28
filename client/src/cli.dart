@@ -14,7 +14,7 @@ Cli()
   var choice = stdin.readLineSync(); 
   
    switch(choice) { 
-      case "createuser": {  print("Excellent"); } 
+      case "createuser": {  createuser(); } 
       break; 
      
       case "listuser": {  listuser(); } 

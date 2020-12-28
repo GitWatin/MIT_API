@@ -12,10 +12,9 @@ import 'dart:convert' as convert;
 
     if (response.statusCode == 200) {
     var jsonResponse = convert.jsonDecode(response.body);
-
-    print(jsonResponse);
+    //var id = int.tryParse(id.value);
     //var nom =jsonResponse.nom;
-    //print(nom);
+    print(jsonResponse);
   } else {
     print('Request failed with status: ${response.statusCode}.');
   }
