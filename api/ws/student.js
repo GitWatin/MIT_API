@@ -47,7 +47,7 @@ module.exports = {
 	create:		function(req, res){
 
 					const item = req.body;
-					console.log(item);
+					console.log(item['nom']);
 					res.send('coucou');
 
 					}
