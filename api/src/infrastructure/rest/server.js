@@ -1,10 +1,13 @@
 const express = require("express");
-const middlewares = require("./middlewares");
+const bodyParser = require("body-parser");
+const { middlewares, error } = require("./middlewares");
 const logger = require("../../util/logger");
 const { restConfig } = require("../../config/config");
 const routes = require("./routes");
 
 const app = express();
+
+app.use(bodyParser.json());
 
 // On ajoute chaque middleware à express
 // Équivalent à :
@@ -12,7 +15,10 @@ const app = express();
 // app.use(middleware2)
 app.use(...middlewares);
 
-app.use(routes);
+app.use("/", routes);
+
+// Doit rester à la fin
+app.use(error);
 
 const server = {
   start: () =>

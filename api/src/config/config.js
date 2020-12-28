@@ -15,6 +15,7 @@ const loggerConfig = {
 
 const restConfig = {
   port: env.PORT || 8080,
+  secret: env.TOKEN_SECRET,
 };
 
 Object.freeze(restConfig);

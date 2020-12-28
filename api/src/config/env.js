@@ -10,6 +10,7 @@ const {
   MYSQL_DBNAME,
   LOG_LEVEL,
   PORT,
+  TOKEN_SECRET,
 } = process.env;
 
 const env = {
@@ -21,6 +22,7 @@ const env = {
   MYSQL_DBNAME,
   LOG_LEVEL,
   PORT,
+  TOKEN_SECRET,
 };
 
 Object.freeze(env);
