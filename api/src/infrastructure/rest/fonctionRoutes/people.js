@@ -29,7 +29,8 @@ const create = async ({ firstname, lastname, email, status }) => {
   const people = { nom: lastname, prenom: firstname, email, status };
   const result = await database.query("INSERT INTO people SET ?", people);
 
-  if (!result.length) {
+  // When an error occurs the result is an empty array
+  if (Array.isArray(result) && result.length === 0) {
     return false;
   }
 
