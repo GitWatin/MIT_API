@@ -50,6 +50,36 @@ const error = (err, _req, res, _next) => {
   return res.status(500).send({ msg: "Internal Server Error" });
 };
 
+const hasFirstname = (req, res, next) => {
+  const { firstname } = req.body;
+
+  if (!firstname) {
+    return res.status(400).send({ msg: "You have to specify the firstname." });
+  }
+
+  return next();
+};
+
+const hasLastname = (req, res, next) => {
+  const { lastname } = req.body;
+
+  if (!lastname) {
+    return res.status(400).send({ msg: "You have to specify the lastname." });
+  }
+
+  return next();
+};
+
+const hasEmail = (req, res, next) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).send({ msg: "You have to specify the email." });
+  }
+
+  return next();
+};
+
 const middlewares = [
   helmet(),
   bodyParser.json({ limit: "10kb" }),
@@ -59,4 +89,11 @@ const middlewares = [
   auth,
 ];
 
-module.exports = { middlewares, isTeacher, error };
+module.exports = {
+  middlewares,
+  isTeacher,
+  error,
+  hasFirstname,
+  hasLastname,
+  hasEmail,
+};
