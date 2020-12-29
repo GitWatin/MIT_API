@@ -1,11 +1,13 @@
 const jwt = require("jsonwebtoken");
+const bodyParser = require("body-parser");
+const helmet = require("helmet");
 const logger = require("../../util/logger");
 const peopleFonctions = require("./fonctionRoutes/people");
 const { restConfig } = require("../../config/config");
+
 // Logguer toutes les requêtes HTTP de l'API
 // const pinoHttp = require('pino-http');
 // const pinoHttpInstance = pinoHttp({ logger });
-
 const pinoHttp = require("pino-http")({ logger });
 
 const auth = async (req, res, next) => {
@@ -41,10 +43,19 @@ const isTeacher = async (req, res, next) => {
 };
 
 const error = (err, _req, res, _next) => {
+  if (res.headersSent) {
+    return next(err);
+  }
   logger.error(err);
   return res.status(500).send({ msg: "Internal Server Error" });
 };
 
-const middlewares = [pinoHttp, auth];
+const middlewares = [
+  helmet(),
+  bodyParser.json({ limit: "10kb" }),
+  bodyParser.urlencoded({ extended: true }),
+  pinoHttp,
+  auth,
+];
 
 module.exports = { middlewares, isTeacher, error };
