@@ -1,17 +1,12 @@
-const os = require("os");
-const gccRouter = require("express").Router();
-const { compile, compileStatus } = require("../../gcc/gcc");
 const fs = require("fs");
+const os = require("os");
+const compileRouter = require("express").Router();
+const { compile, compileStatus } = require("../../compilation/compile");
 const unixTimestamp = require("../../../util/timestamp");
 const { extension } = require("../../../util/file");
 
 // Liste des extensions authorisées.
 const ASSET_TYPES = { c: true, cpp: true, asm: true };
-
-// GET(récuper)
-// POST(modifier)
-// PUT(creer/mettre à jour totalement)
-// DELETE(supprimer)
 
 const extractFileName = (req, res, next) => {
   const { name } = req.params;
@@ -55,7 +50,7 @@ const isExtensionSupported = (req, res, next) => {
   return next();
 };
 
-gccRouter.post(
+compileRouter.post(
   "/:name",
   extractFileName,
   extractExtension,
@@ -113,4 +108,4 @@ gccRouter.post(
   }
 );
 
-module.exports = gccRouter;
+module.exports = compileRouter;
