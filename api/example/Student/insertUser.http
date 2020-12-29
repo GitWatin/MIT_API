@@ -1,0 +1,10 @@
+POST http://localhost:8080/student
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikd1aWxsYXVtZSBRdWl0dGV0IiwiZW1haWwiOiJndWlsbGF1bWUucXVpdHRldEBnbWFpbC5jb20iLCJpYXQiOjE1MTYyMzkwMjJ9.n8tWHvSIN_wTNYiMn-wVyf_iYFkIWmgJzZ12_ylVOoA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikd1aWxsYXVtZSBRdWl0dGV0IiwiZW1haWwiOiJndWlsbGF1bWUucXVpdHRldEBnbWFpbC5jb20iLCJpYXQiOjE1MTYyMzkwMjJ9.5jhqKZVxcjKFIzs4DOj6FcwREG58NOS1RFA90QKWMck
+content-type: application/json
+
+{
+    "firstname": "Valentin",
+    "lastname": "Denis",
+    "email": "v1@v.be"
+}
