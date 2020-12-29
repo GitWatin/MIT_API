@@ -50,6 +50,19 @@ const update = async (emailToUpdate, { firstname, lastname, email }) => {
   return true;
 };
 
+const deleteStudent = async (email) => {
+  const result = await database.query(
+    "DELETE FROM people WHERE email = ? AND status = 1",
+    [email]
+  );
+
+  if (Array.isArray(result) && result.length === 0) {
+    return false;
+  }
+
+  return true;
+};
+
 const listAllStudents = async () => {
   const result = await database.query("SELECT * FROM people WHERE status = 1");
   return result;
@@ -60,5 +73,6 @@ module.exports = {
   getByEmail,
   create,
   update,
+  deleteStudent,
   listAllStudents,
 };

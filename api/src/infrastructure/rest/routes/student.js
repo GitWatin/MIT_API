@@ -104,4 +104,17 @@ studentRouter.put(
   }
 );
 
+studentRouter.delete("/:email", isTeacher, async (req, res) => {
+  const { email } = req.params;
+  const result = await peopleFonctions.deleteStudent(email);
+
+  if (!result) {
+    return res
+      .status(400)
+      .send({ msg: "Unable to delete the requested student." });
+  }
+
+  return res.status(204).send();
+});
+
 module.exports = studentRouter;
