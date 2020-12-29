@@ -54,6 +54,7 @@ const middlewares = [
   helmet(),
   bodyParser.json({ limit: "10kb" }),
   bodyParser.urlencoded({ extended: true }),
+  bodyParser.text({ limit: "2mb" }),
   pinoHttp,
   auth,
 ];
