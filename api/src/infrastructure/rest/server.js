@@ -7,8 +7,6 @@ const routes = require("./routes");
 
 const app = express();
 
-app.use(bodyParser.json());
-
 // On ajoute chaque middleware à express
 // Équivalent à :
 // app.use(middleware1)
