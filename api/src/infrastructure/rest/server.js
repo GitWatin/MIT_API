@@ -1,5 +1,4 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const { middlewares, error } = require("./middlewares");
 const logger = require("../../util/logger");
 const { restConfig } = require("../../config/config");
