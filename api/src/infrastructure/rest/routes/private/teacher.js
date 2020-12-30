@@ -1,7 +1,7 @@
 const teacherRouter = require("express").Router();
-const peopleFonctions = require("../fonctionRoutes/people");
-const { toPeopleReturn } = require("../dataReturn/people");
-const { isTeacher } = require("../middlewares");
+const peopleFonctions = require("../../fonctionRoutes/people");
+const { toPeopleReturn } = require("../../dataReturn/people");
+const { isTeacher } = require("../../middlewares");
 
 // GET(récuper)
 // POST(modifier)

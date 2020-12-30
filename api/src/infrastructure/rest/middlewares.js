@@ -8,7 +8,7 @@ const { restConfig } = require("../../config/config");
 // Logguer toutes les requêtes HTTP de l'API
 // const pinoHttp = require('pino-http');
 // const pinoHttpInstance = pinoHttp({ logger });
-const pinoHttp = require("pino-http")({ logger });
+const loggerHttp = require("pino-http")({ logger });
 
 const auth = async (req, res, next) => {
   const bearer = req.header("Authorization");
@@ -80,14 +80,17 @@ const hasEmail = (req, res, next) => {
   return next();
 };
 
-const middlewares = [
-  helmet(),
-  bodyParser.json({ limit: "10kb" }),
-  bodyParser.urlencoded({ extended: true }),
-  bodyParser.text({ limit: "2mb" }),
-  pinoHttp,
-  auth,
-];
+const hasPassword = (req, res, next) => {
+  const { password } = req.body;
+
+  if (!password) {
+    return res.status(400).send({ msg: "You have to specify the password." });
+  }
+
+  return next();
+};
+
+const middlewares = [loggerHttp, helmet(), bodyParser.json({ limit: "10kb" })];
 
 module.exports = {
   middlewares,
@@ -96,4 +99,6 @@ module.exports = {
   hasFirstname,
   hasLastname,
   hasEmail,
+  hasPassword,
+  auth,
 };

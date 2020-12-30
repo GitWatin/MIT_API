@@ -1,12 +1,14 @@
 const studentRouter = require("express").Router();
-const peopleFonctions = require("../fonctionRoutes/people");
+const peopleFonctions = require("../../fonctionRoutes/people");
 const {
   isTeacher,
   hasEmail,
   hasFirstname,
   hasLastname,
-} = require("../middlewares");
-const { toPeopleReturn } = require("../dataReturn/people");
+  hasPassword,
+} = require("../../middlewares");
+const { toPeopleReturn } = require("../../dataReturn/people");
+const hashPassword = require("../../../../util/hashPassword");
 
 // GET(récuper)
 // POST(modifier)
@@ -35,13 +37,17 @@ studentRouter.post(
   hasFirstname,
   hasLastname,
   hasEmail,
+  hasPassword,
   async (req, res) => {
-    const { firstname, lastname, email } = req.body;
+    const { firstname, lastname, email, password } = req.body;
+
+    const hash = hashPassword(password);
 
     const result = await peopleFonctions.create({
       firstname,
       lastname,
       email,
+      password: hash,
       status: 1,
     });
 
@@ -61,48 +67,56 @@ studentRouter.put(
   hasLastname,
   hasEmail,
   async (req, res) => {
-    const { firstname, lastname, email } = req.body;
-    const { email: emailToUpdate } = req.locals.user;
-    const result = await peopleFonctions.update(emailToUpdate, {
-      firstname,
-      lastname,
-      email,
-    });
-
-    if (!result) {
-      return res
-        .status(400)
-        .send({ msg: "Unable to update the requested student." });
-    }
-
-    return res.status(204).send();
-  }
-);
-
-studentRouter.put(
-  "/:email",
-  isTeacher,
-  hasFirstname,
-  hasLastname,
-  hasEmail,
-  async (req, res) => {
-    const { firstname, lastname, email } = req.body;
     const { email: emailToUpdate } = req.params;
-    const result = await peopleFonctions.update(emailToUpdate, {
-      firstname,
-      lastname,
-      email,
-    });
+    return updateUser({ ...req.body, email: emailToUpdate });
+  }
+);
 
-    if (!result) {
+studentRouter.put("/:email", isTeacher, async (req, res) => {
+  const { email: emailToUpdate } = req.params;
+  return updateUser({ ...req.body, email: emailToUpdate });
+});
+
+const updateUser = async ({ firstname, lastname, email, password }) => {
+  if (firstname) {
+    try {
+      await updateFirstname(emailToUpdate, firstname);
+    } catch (err) {
       return res
         .status(400)
         .send({ msg: "Unable to update the requested student." });
     }
-
-    return res.status(204).send();
   }
-);
+  if (lastname) {
+    try {
+      await updateLastname(emailToUpdate, lastname);
+    } catch (err) {
+      return res
+        .status(400)
+        .send({ msg: "Unable to update the requested student." });
+    }
+  }
+  if (email) {
+    try {
+      await updateEmail(emailToUpdate, email);
+    } catch (err) {
+      return res
+        .status(400)
+        .send({ msg: "Unable to update the requested student." });
+    }
+  }
+  if (password) {
+    const hash = hashPassword(password);
+    try {
+      await updatePassword(emailTOUpdate, hash);
+    } catch (err) {
+      return res
+        .status(400)
+        .send({ msg: "Unable to update the requested student." });
+    }
+  }
+  return res.status(204).send();
+};
 
 studentRouter.delete("/:email", isTeacher, async (req, res) => {
   const { email } = req.params;

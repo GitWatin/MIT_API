@@ -1,9 +1,9 @@
 const fs = require("fs");
 const os = require("os");
 const compileRouter = require("express").Router();
-const { compile, compileStatus } = require("../../compilation/compile");
-const unixTimestamp = require("../../../util/timestamp");
-const { extension } = require("../../../util/file");
+const { compile, compileStatus } = require("../../../compilation/compile");
+const unixTimestamp = require("../../../../util/timestamp");
+const { extension } = require("../../../../util/file");
 
 // Liste des extensions authorisées.
 const ASSET_TYPES = { c: true, cpp: true, asm: true };
