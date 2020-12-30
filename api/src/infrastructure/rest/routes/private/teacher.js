@@ -42,52 +42,7 @@ teacherRouter.put("/", async (req, res) => {
   const {
     user: { email: emailToUpdate },
   } = req.locals;
-  return await updateUser(emailToUpdate, { ...req.body }, res);
+  return await peopleFonctions.updateUser(emailToUpdate, { ...req.body }, res);
 });
-
-const updateUser = async (
-  emailToUpdate,
-  { firstname, lastname, email, password },
-  res
-) => {
-  if (firstname) {
-    try {
-      await peopleFonctions.updateFirstname(emailToUpdate, firstname);
-    } catch (err) {
-      return res
-        .status(400)
-        .send({ msg: "Unable to update the firstname of the student." });
-    }
-  }
-  if (lastname) {
-    try {
-      await peopleFonctions.updateLastname(emailToUpdate, lastname);
-    } catch (err) {
-      return res
-        .status(400)
-        .send({ msg: "Unable to update the lastname of the student." });
-    }
-  }
-  if (email) {
-    try {
-      await peopleFonctions.updateEmail(emailToUpdate, email);
-    } catch (err) {
-      return res
-        .status(400)
-        .send({ msg: "Unable to update the email of the student." });
-    }
-  }
-  if (password) {
-    const hash = hashPassword(password);
-    try {
-      await peopleFonctions.updatePassword(emailToUpdate, hash);
-    } catch (err) {
-      return res
-        .status(400)
-        .send({ msg: "Unable to update the password of the student." });
-    }
-  }
-  return res.status(200).send({ msg: "User updated." });
-};
 
 module.exports = teacherRouter;
