@@ -61,58 +61,57 @@ studentRouter.post(
   }
 );
 
-studentRouter.put(
-  "/",
-  hasFirstname,
-  hasLastname,
-  hasEmail,
-  async (req, res) => {
-    const { email: emailToUpdate } = req.params;
-    return updateUser({ ...req.body, email: emailToUpdate });
-  }
-);
+studentRouter.put("/", async (req, res) => {
+  const {
+    user: { email: emailToUpdate },
+  } = req.locals;
+  return await updateUser(emailToUpdate, { ...req.body })(req, res);
+});
 
 studentRouter.put("/:email", isTeacher, async (req, res) => {
   const { email: emailToUpdate } = req.params;
-  return updateUser({ ...req.body, email: emailToUpdate });
+  return await updateUser(emailToUpdate, { ...req.body })(req, res);
 });
 
-const updateUser = async ({ firstname, lastname, email, password }) => {
+const updateUser = (
+  emailToUpdate,
+  { firstname, lastname, email, password }
+) => async (req, res) => {
   if (firstname) {
     try {
-      await updateFirstname(emailToUpdate, firstname);
+      await peopleFonctions.updateFirstname(emailToUpdate, firstname);
     } catch (err) {
       return res
         .status(400)
-        .send({ msg: "Unable to update the requested student." });
+        .send({ msg: "Unable to update the firstname of the student." });
     }
   }
   if (lastname) {
     try {
-      await updateLastname(emailToUpdate, lastname);
+      await peopleFonctions.updateLastname(emailToUpdate, lastname);
     } catch (err) {
       return res
         .status(400)
-        .send({ msg: "Unable to update the requested student." });
+        .send({ msg: "Unable to update the lastname of the student." });
     }
   }
   if (email) {
     try {
-      await updateEmail(emailToUpdate, email);
+      await peopleFonctions.updateEmail(emailToUpdate, email);
     } catch (err) {
       return res
         .status(400)
-        .send({ msg: "Unable to update the requested student." });
+        .send({ msg: "Unable to update the email of the student." });
     }
   }
   if (password) {
     const hash = hashPassword(password);
     try {
-      await updatePassword(emailTOUpdate, hash);
+      await peopleFonctions.updatePassword(emailTOUpdate, hash);
     } catch (err) {
       return res
         .status(400)
-        .send({ msg: "Unable to update the requested student." });
+        .send({ msg: "Unable to update the password of the student." });
     }
   }
   return res.status(204).send();

@@ -38,7 +38,10 @@ const create = async ({ firstname, lastname, email, password, status }) => {
 };
 
 const updateField = async (emailToUpdate, field, content) => {
-  await database.query(`UPDATE people SET ${field}=?`, [content]);
+  await database.query(`UPDATE people SET ${field}=? WHERE email=?`, [
+    content,
+    emailToUpdate,
+  ]);
 };
 
 const updateFirstname = (emailToUpdate, firstname) =>
