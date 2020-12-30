@@ -22,7 +22,7 @@ Future<String> login() async {
   var password = stdin.readLineSync();
   stdin.echoMode = true;
 
-  print(password);
+ 
 
   var bytes = utf8.encode("m4sb0UlnMH" +
       password +
@@ -30,8 +30,7 @@ Future<String> login() async {
   var hashed = sha256.convert(bytes);
   var hashedStr = base64.encode(hashed.bytes);
 
-  print(
-      hashedStr); // Maintenant avec ca j'ai bien  un SHA : 5d21858f85a98454ef560d664aac8c88235381df4457e8b3b183804e44c1e41e
+
 
   var url_tosend = 'http://mit.watin.be:8080/login';
   var response = await http.post(url_tosend,
@@ -51,7 +50,7 @@ Future<String> login() async {
     print("BAD PASSWORD");
   }
   Map res = jsonDecode(response.body);
-  print(res['token']);
+  //print(res['token']);
   return res['token'];
 }
 

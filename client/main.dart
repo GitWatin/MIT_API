@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'src/cli.dart';
 import 'src/login.dart';
 

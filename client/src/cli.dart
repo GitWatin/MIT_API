@@ -8,7 +8,7 @@ import 'services/deletuser.dart';
 import 'services/compile_gcc.dart';
 
 Cli(String token) {
-  print(token);
+ 
 
   help();
   print("Veuillez saisir l'opération");
