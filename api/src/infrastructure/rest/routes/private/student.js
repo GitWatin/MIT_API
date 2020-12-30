@@ -57,7 +57,7 @@ studentRouter.post(
         .send({ msg: "Unable to insert the requested student." });
     }
 
-    return res.status(201).send();
+    return res.status(201).send({ msg: "User created." });
   }
 );
 
@@ -65,18 +65,19 @@ studentRouter.put("/", async (req, res) => {
   const {
     user: { email: emailToUpdate },
   } = req.locals;
-  return await updateUser(emailToUpdate, { ...req.body })(req, res);
+  return await updateUser(emailToUpdate, { ...req.body }, res);
 });
 
 studentRouter.put("/:email", isTeacher, async (req, res) => {
   const { email: emailToUpdate } = req.params;
-  return await updateUser(emailToUpdate, { ...req.body })(req, res);
+  return await updateUser(emailToUpdate, { ...req.body }, res);
 });
 
-const updateUser = (
+const updateUser = async (
   emailToUpdate,
-  { firstname, lastname, email, password }
-) => async (req, res) => {
+  { firstname, lastname, email, password },
+  res
+) => {
   if (firstname) {
     try {
       await peopleFonctions.updateFirstname(emailToUpdate, firstname);
@@ -114,7 +115,7 @@ const updateUser = (
         .send({ msg: "Unable to update the password of the student." });
     }
   }
-  return res.status(204).send();
+  return res.status(200).send({ msg: "User updated." });
 };
 
 studentRouter.delete("/:email", isTeacher, async (req, res) => {
