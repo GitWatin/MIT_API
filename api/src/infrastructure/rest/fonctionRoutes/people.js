@@ -25,8 +25,8 @@ const getByEmail = async (email) => {
   return result[0];
 };
 
-const create = async ({ firstname, lastname, email, status }) => {
-  const people = { nom: lastname, prenom: firstname, email, status };
+const create = async ({ firstname, lastname, email, password, status }) => {
+  const people = { nom: lastname, prenom: firstname, email, password, status };
   const result = await database.query("INSERT INTO people SET ?", people);
 
   // When an error occurs the result is an empty array
@@ -37,18 +37,18 @@ const create = async ({ firstname, lastname, email, status }) => {
   return true;
 };
 
-const update = async (emailToUpdate, { firstname, lastname, email }) => {
-  const result = await database.query(
-    "UPDATE people SET prenom = ?, nom = ?, email = ? WHERE email = ?",
-    [firstname, lastname, email, emailToUpdate]
-  );
-
-  if (!result.affectedRows) {
-    return false;
-  }
-
-  return true;
+const updateField = async (emailToUpdate, field, content) => {
+  await database.query(`UPDATE people SET ${field}=?`, [content]);
 };
+
+const updateFirstname = (emailToUpdate, firstname) =>
+  updateField(emailToUpdate, "prenom", firstname);
+const updateLastname = (emailToUpdate, lastname) =>
+  updateField(emailToUpdate, "nom", lastname);
+const updatePassword = (emailToUpdate, password) =>
+  updateField(emailToUpdate, "password", password);
+const updateEmail = (emailToUpdate, email) =>
+  updateField(emailToUpdate, "email", email);
 
 const deleteStudent = async (email) => {
   const result = await database.query(
@@ -72,7 +72,9 @@ module.exports = {
   getTeacherByEmail,
   getByEmail,
   create,
-  update,
   deleteStudent,
   listAllStudents,
+  updateFirstname,
+  updateLastname,
+  updatePassword,
 };
