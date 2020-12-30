@@ -7,69 +7,82 @@ import 'services/updateuser.dart';
 import 'services/deletuser.dart';
 import 'services/compile_gcc.dart';
 
-Cli(String token) {
- 
+Cli(String token) async
+{
 
-  help();
-  print("Veuillez saisir l'opération");
-  var choice = stdin.readLineSync();
 
-  switch (choice) {
-    case "createuser":
-      {
-        createuser(token);
-      }
-      break;
+  while(true)
+  {
+    help();
+    print("Veuillez saisir l'opération");
+    var choice = stdin.readLineSync();
 
-    case "listuser":
-      {
-        listuser(token);
-      }
-      break;
+    switch (choice) {
+      case "createuser":
+        {
+         await createuser(token);
+        }
+        break;
 
-    case "alteruser":
-      {
-        updateuser(token);
-      }
-      break;
+      case "listuser":
+        {
+          await listuser(token);
+        }
+        break;
 
-    case "deleteuser":
-      {
-        deleteuser(token);
-      }
-      break;
-    case "compile":
-      {
-        compile(token);
-      }
-      break;
-    case "showhistory":
-      {
-        showHistory(token);
-      }
-      break;
-    case "help":
-      {
-        help();
-      }
-      break;
+      case "alteruser":
+        {
+         await updateuser(token);
+        }
+        break;
 
-    default:
-      {
-        print("Invalid choice");
-      }
-      break;
+      case "deleteuser":
+        {
+         await  deleteuser(token);
+        }
+        break;
+      case "compile":
+        {
+         await  compile(token);
+        }
+        break;
+      case "showhistory":
+        {
+          await showHistory(token);
+        }
+        break;
+      case "help":
+        {
+         await  help();
+        }
+        break;
+
+        case "exit":
+        {
+          return 0;
+        }
+        break;
+
+      default:
+        {
+          print("Invalid choice");
+        }
+        break;
+    }
   }
 }
 
+
 help() {
+  print("\n");
+  print("\n");
   print("Available commands:");
-  print("   help        - display help");
-  print("   createuser  - create user");
-  print("   deleteuser  - delete existing user");
-  print("   alteruser   - alter existing user");
-  print("   listuser - list existing users");
-  print("   compile - list existing users");
-  print("   showhistory - list existing users");
-  print("   exit        - exit the application");
+  print("   help          - display help");
+  print("   createuser    - create user");
+  print("   deleteuser    - delete existing user");
+  print("   alteruser     - alter existing user");
+  print("   listuser      - list all existing users");
+  print("   compile       - compile C/C++/ASM code");
+  print("   showhistory   - list compilation history");
+  print("   exit          - exit the application");
 }
