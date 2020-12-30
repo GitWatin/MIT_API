@@ -35,7 +35,7 @@ const isTeacher = async (req, res, next) => {
 
   if (!teacher) {
     return res
-      .status(401)
+      .status(403)
       .send({ msg: "You're not allowed to see the teacher content" });
   }
 
