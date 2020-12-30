@@ -1,4 +1,5 @@
 const database = require("../../database/mysql");
+const hashPassword = require("../../../util/hashPassword");
 
 const getTeacherByEmail = async (email) => {
   const result = await database.query(
@@ -82,7 +83,7 @@ const updateUser = async (
 ) => {
   if (firstname) {
     try {
-      await peopleFonctions.updateFirstname(emailToUpdate, firstname);
+      await updateFirstname(emailToUpdate, firstname);
     } catch (err) {
       return res
         .status(400)
@@ -91,7 +92,7 @@ const updateUser = async (
   }
   if (lastname) {
     try {
-      await peopleFonctions.updateLastname(emailToUpdate, lastname);
+      await updateLastname(emailToUpdate, lastname);
     } catch (err) {
       return res
         .status(400)
@@ -101,7 +102,7 @@ const updateUser = async (
   if (password) {
     const hash = hashPassword(password);
     try {
-      await peopleFonctions.updatePassword(emailToUpdate, hash);
+      await updatePassword(emailToUpdate, hash);
     } catch (err) {
       return res
         .status(400)
@@ -110,7 +111,7 @@ const updateUser = async (
   }
   if (email) {
     try {
-      await peopleFonctions.updateEmail(emailToUpdate, email);
+      await updateEmail(emailToUpdate, email);
     } catch (err) {
       return res
         .status(400)
