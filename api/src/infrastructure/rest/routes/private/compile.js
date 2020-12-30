@@ -2,8 +2,10 @@ const fs = require("fs");
 const os = require("os");
 const compileRouter = require("express").Router();
 const { compile, compileStatus } = require("../../../compilation/compile");
+const { getLastCompilations } = require("../../fonctionRoutes/compile");
 const unixTimestamp = require("../../../../util/timestamp");
 const { extension } = require("../../../../util/file");
+const { isTeacher } = require("../../middlewares");
 
 // Liste des extensions authorisées.
 const ASSET_TYPES = { c: true, cpp: true, asm: true };
@@ -94,10 +96,11 @@ compileRouter.post(
   async (req, res) => {
     const {
       file: { path },
+      user: { email },
     } = req.locals;
 
     try {
-      const result = await compile(path);
+      const result = await compile(path, email);
       return res.status(200).send(result);
     } catch (err) {
       compileStatus.stop();
@@ -107,5 +110,16 @@ compileRouter.post(
     }
   }
 );
+
+compileRouter.get("/", isTeacher, async (req, res) => {
+  let result = [];
+  try {
+    result = await getLastCompilations();
+  } catch (err) {
+    logger.warn(err);
+  } finally {
+    return res.status(200).send(result);
+  }
+});
 
 module.exports = compileRouter;

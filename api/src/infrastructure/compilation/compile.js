@@ -1,5 +1,6 @@
 const { exec } = require("child_process");
 const { extension } = require("../../util/file");
+const { addCompilationToHistory } = require("../rest/fonctionRoutes/compile");
 
 const canCompile = () => {
   let status = false;
@@ -26,7 +27,7 @@ const canCompile = () => {
 const compileStatus = canCompile();
 
 // On retourne une promesse pour pouvoir attendre le résultat de la compilation
-const compile = async (path, options = "") => {
+const compile = async (path, email, options = "") => {
   compileStatus.start();
   const ext = extension(path);
   let result = undefined;
@@ -41,6 +42,7 @@ const compile = async (path, options = "") => {
     default:
   }
   compileStatus.stop();
+  await addCompilationToHistory(email, result, path);
   return result;
 };
 
