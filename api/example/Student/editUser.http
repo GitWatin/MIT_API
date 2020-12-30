@@ -1,0 +1,8 @@
+PUT http://localhost:8080/student
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1aWxsYXVtZS5xdWl0dGV0QGdtYWlsLmNvbSIsIm5hbWUiOiJHdWlsbGF1bWUgUXVpdHRldCIsImV4cCI6MTYwOTMyOTA5NCwiaWF0IjoxNjA5MzI1NDk0fQ.XSZFLkNOZuhbi1GdnvzHBQOLAq-qCBPPEO_6I37BX0g
+Content-Type: application/json
+
+{
+  "firstname": "Val",
+  "lastname": "Denis"
+}
