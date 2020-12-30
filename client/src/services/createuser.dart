@@ -17,6 +17,9 @@ createuser(String token) async {
   print("Entrez l'adresse email");
   var email = stdin.readLineSync();
 
+  print("Entrez le password");
+  var password = stdin.readLineSync();
+
   var url_tosend = 'http://mit.watin.be:8080/student/';
 
   var response = await http.post(url_tosend,
@@ -27,7 +30,8 @@ createuser(String token) async {
       body: jsonEncode(<String, String>{
         'lastname': nom,
         'firstname': prenom,
-        'email': email
+        'email': email,
+        'password': password
       }));
 
   if (response.statusCode == 201) {

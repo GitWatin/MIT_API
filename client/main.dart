@@ -1,10 +1,10 @@
-import 'src/cli.dart';
-import 'dart:io';
-import 'src/login.dart';
-import './src/config/config.dart';
+import 'dart:async';
 
-int main() {
-  String token = tokenGenerator();
+import 'src/cli.dart';
+import 'src/login.dart';
+
+Future<int> main() async {
+  String token = await login();
   var cli = Cli(token);
   return 0;
 }

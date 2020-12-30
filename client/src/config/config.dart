@@ -1,3 +1,3 @@
 import '../login.dart';
 
-String token = tokenGenerator();
+//String token = tokenGenerator();

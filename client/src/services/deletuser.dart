@@ -16,8 +16,9 @@ deleteuser(String token) async {
     },
   );
 
-  if (response.statusCode == 204) {
-    print('Utilisateur supprimé');
+  if (response.statusCode == 200) {
+    Map res = jsonDecode(response.body);
+    print(res['msg']);
   } else {
     Map res = jsonDecode(response.body);
     print(res['msg']);
