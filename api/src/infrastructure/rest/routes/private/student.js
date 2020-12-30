@@ -83,7 +83,7 @@ studentRouter.delete("/:email", isTeacher, async (req, res) => {
       .send({ msg: "Unable to delete the requested student." });
   }
 
-  return res.status(204).send();
+  return res.status(200).send({ msg: "User deleted." });
 });
 
 module.exports = studentRouter;
