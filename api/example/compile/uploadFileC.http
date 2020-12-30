@@ -1,0 +1,5 @@
+POST http://localhost:8080/compile/test.c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhbGVudGluLmRlbmlzQHN0ZC5oZWguYmUiLCJuYW1lIjoiVmFsZW50aW4gRGVuaXMiLCJleHAiOjE2MDkzMjkxOTAsImlhdCI6MTYwOTMyNTU5MH0.7ZA7fJCI0O8zx-7QykaJQNglHSl_1oVdnvfVsot7HPU
+Content-Type: text/plain
+
+< ./test.c

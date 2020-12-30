@@ -1,0 +1,7 @@
+GET http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "email": "valentin.denis@std.heh.be",
+  "password": "XSGFj4WphFTvVg1mSqyMiCNTgd9EV+izsYOATkTB5B4="
+}
