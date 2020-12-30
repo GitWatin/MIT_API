@@ -63,6 +63,10 @@ const deleteStudent = async (email) => {
     return false;
   }
 
+  if (result.affectedRows === 0) {
+    return false;
+  }
+
   return true;
 };
 
