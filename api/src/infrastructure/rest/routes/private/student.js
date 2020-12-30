@@ -107,9 +107,12 @@ const updateUser = async (
   }
   if (password) {
     const hash = hashPassword(password);
+    console.log(password);
+    console.log(hash);
     try {
-      await peopleFonctions.updatePassword(emailTOUpdate, hash);
+      await peopleFonctions.updatePassword(emailToUpdate, hash);
     } catch (err) {
+      console.log(err);
       return res
         .status(400)
         .send({ msg: "Unable to update the password of the student." });

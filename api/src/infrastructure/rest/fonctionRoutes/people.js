@@ -80,4 +80,5 @@ module.exports = {
   updateFirstname,
   updateLastname,
   updatePassword,
+  updateEmail,
 };
