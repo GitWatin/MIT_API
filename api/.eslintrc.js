@@ -1,3 +1,7 @@
+// linter
+// eslint = linter le plus courant
+// Permet de forcer la mise en forme du code selon les conventions
+
 module.exports = {
   env: {
     commonjs: true,

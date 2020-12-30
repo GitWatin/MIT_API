@@ -1,3 +1,5 @@
+#Permet de forcer la convention JS en fonction de l'IDE
+
 root = true
 
 [*]
