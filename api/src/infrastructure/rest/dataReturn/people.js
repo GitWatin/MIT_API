@@ -1,3 +1,6 @@
+// Retourne l'utilisateur pour l'utiliser ulterieurement
+// Securise car on ne voit pas le champs de la DB
+
 const toPeopleReturn = (people) => {
   return {
     lastname: people.nom,

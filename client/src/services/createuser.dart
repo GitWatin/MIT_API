@@ -11,8 +11,8 @@ createuser(String token) async {
   print("Entrez le PRÉNOM");
   var prenom = stdin.readLineSync();
 
-  print("Entrez le Status (1=Student;0=prof");
-  var status = stdin.readLineSync();
+  //print("Entrez le Status (1=Student;0=prof");
+  //var status = stdin.readLineSync();
 
   print("Entrez l'adresse email");
   var email = stdin.readLineSync();

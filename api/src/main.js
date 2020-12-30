@@ -1,3 +1,5 @@
+//Point d'entrée du projet
+
 const logger = require("./util/logger");
 const server = require("./infrastructure/rest/server");
 
@@ -7,7 +9,7 @@ const server = require("./infrastructure/rest/server");
     await server.start();
     logger.info("Server started successfully.");
   } catch (e) {
-    logger.error("Internal Server Error");
+    logger.error("Internal Server Error"); // Si error kill du process
     process.kill(process.pid, "SIGINT");
   }
 })();

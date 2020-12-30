@@ -1,5 +1,7 @@
 const database = require("../../database/mysql");
 
+// Fonction pour inserer dans l'historique
+
 const addCompilationToHistory = async (email, result, path) => {
   const historyElement = { email, date: new Date(), result, file: path };
   const r = await database.query(
@@ -15,6 +17,7 @@ const addCompilationToHistory = async (email, result, path) => {
   return true;
 };
 
+//Fonction pour lister l'historique
 const getLastCompilations = async () => {
   const result = await database.query(
     "SELECT * FROM compiler_history ORDER BY id DESC LIMIT 10"

@@ -10,12 +10,12 @@ const app = express();
 // Équivalent à :
 // app.use(middleware1)
 // app.use(middleware2)
-app.use(...middlewares);
+app.use(...middlewares); // Utiliser tous les middelwares contenu dans un tableau
 
 app.use("/", routes);
 
 // Doit rester à la fin
-app.use(error);
+app.use(error); //middelware error (server error 500)
 
 const server = {
   start: () =>
@@ -24,7 +24,7 @@ const server = {
         if (error) {
           reject(error);
         }
-        logger.info("Rest layer successfully started");
+        logger.info("Rest layer successfully started"); //log dans pino
         resolve();
       });
     }),

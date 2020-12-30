@@ -27,4 +27,4 @@ const env = {
 
 Object.freeze(env);
 
-module.exports = env;
+module.exports = env; // Export de l'object env contennant les données contenue dans .env

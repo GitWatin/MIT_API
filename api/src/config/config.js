@@ -1,3 +1,6 @@
+
+/// configuration de la connection de la DB
+
 const env = require("./env");
 
 const mysqlConfig = {
@@ -18,7 +21,7 @@ const restConfig = {
   secret: env.TOKEN_SECRET,
 };
 
-Object.freeze(restConfig);
+Object.freeze(restConfig); // emepche la modification par la suite
 Object.freeze(mysqlConfig);
 Object.freeze(loggerConfig);
 

@@ -8,7 +8,7 @@ const { isTeacher } = require("../../middlewares");
 // PUT(creer/mettre à jour totalement)
 // DELETE(supprimer)
 
-teacherRouter.use(isTeacher);
+teacherRouter.use(isTeacher); // Dans ces routes obligatoires d'etre d'office teacher pour ne pas le préciser à chaque fois.
 
 teacherRouter.get("/", async (req, res) => {
   const { email } = req.query;

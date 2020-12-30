@@ -5,6 +5,8 @@ const { addCompilationToHistory } = require("../rest/fonctionRoutes/compile");
 const canCompile = () => {
   let status = false;
 
+  //paramettre pour le start/stop de la compilation
+
   const isCompiling = () => {
     return status;
   };
@@ -29,7 +31,7 @@ const compileStatus = canCompile();
 // On retourne une promesse pour pouvoir attendre le résultat de la compilation
 const compile = async (path, email, options = "") => {
   compileStatus.start();
-  const ext = extension(path);
+  const ext = extension(path); // Check la compilateur en fonction de l'extension
   let result = undefined;
   switch (ext.toLowerCase()) {
     case "c":

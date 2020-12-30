@@ -1,6 +1,7 @@
 const studentRouter = require("express").Router();
 const peopleFonctions = require("../../fonctionRoutes/people");
 const {
+  // Ensemble de middelware checkant si on est un prof
   isTeacher,
   hasEmail,
   hasFirstname,
