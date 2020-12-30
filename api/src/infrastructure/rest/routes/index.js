@@ -6,7 +6,7 @@ const privateRouter = require("./private");
 const { restConfig } = require("../../../config/config");
 const { toPeopleReturn } = require("../dataReturn/people");
 
-router.use("/login", hasEmail, hasPassword, async (req, res) => {
+router.post("/login", hasEmail, hasPassword, async (req, res) => {
   const { email, password } = req.body;
 
   const user = await getUserByEmail(email, password);
