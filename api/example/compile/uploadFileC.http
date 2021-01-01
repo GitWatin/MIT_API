@@ -1,5 +1,5 @@
 POST http://localhost:8080/compile/test.c
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhbC5kZW5pc0BoZWguYmUiLCJuYW1lIjoiRGVuaXMgVmFsIiwiZXhwIjoxNjA5MzQzMzM4LCJpYXQiOjE2MDkzMzk3Mzh9.Uat7lJE-St_BV9fl75UC8OmUghiAMpRWr-iTHbj_joM
+Authorization: Bearer <token>
 Content-Type: text/plain
 
 < ./test.c

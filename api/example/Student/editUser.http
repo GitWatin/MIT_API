@@ -1,9 +1,9 @@
 PUT http://localhost:8080/student/fab@fabv.be
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhbGVudGluLmRlbmlzQHN0ZC5oZWguYmUiLCJuYW1lIjoiVmFsZW50aW4gRGVuaXMiLCJleHAiOjE2MDkzNDAzNzQsImlhdCI6MTYwOTMzNjc3NH0.ADK88FFh_wTVn9JjoGbqtmdoUm_BquEsVxxmd1KZqmY
+Authorization: Bearer <token>
 Content-Type: application/json
 
 {
-  "firstname": "Fabb",
-  "lastname": "Hubb",
-  "password": "cooucou"
+  "firstname": "Name",
+  "lastname": "LastName",
+  "password": "Password"
 }

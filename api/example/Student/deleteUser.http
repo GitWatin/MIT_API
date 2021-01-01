@@ -1,2 +1,2 @@
 DELETE http://localhost:8080/student/val.denis@heh.be
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhbC5kZW5pc0BoZWguYmUiLCJuYW1lIjoiRGVuaXMgVmFsIiwiZXhwIjoxNjA5MzQxNjQ1LCJpYXQiOjE2MDkzMzgwNDV9.YBXfJKE_9Ziuw_hEB834gcI0n0terrn-PEXUmXaCiro
+Authorization: Bearer <token>

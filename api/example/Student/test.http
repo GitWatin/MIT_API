@@ -1,28 +1,15 @@
 GET http://localhost:8080/teacher?email=jean-sebastien.lerat@heh.be
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkplYW4tU2ViYXN0aWVuIExlcmF0IiwiZW1haWwiOiJqZWFuLXNlYmFzdGllbi5sZXJhdEBoZWguYmUiLCJpYXQiOjE1MTYyMzkwMjJ9.Br4bcqtm1oK5ZMh3pLAqzE6LL5o6-MC9GHESNyw3K7A
-
-# POST http://localhost:8080/teacher
-# content-type: application/json
-
-# {
-#     "firstname": "Jean-Sebastien",
-#     "lastname": "Lerat",
-#     "email": "js@heh.be"
-# }
-
-# PUT http://localhost:8080/student
-# content-type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikd1aWxsYXVtZSBRdWl0dGV0IiwiZW1haWwiOiJndWlsbGF1bWUucXVpdHRldEBnbWFpbC5jb20iLCJpYXQiOjE1MTYyMzkwMjJ9.n8tWHvSIN_wTNYiMn-wVyf_iYFkIWmgJzZ12_ylVOoA
+Authorization: Bearer <token>
 
 
 PUT http://localhost:8080/teacher
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkplYW4tU2ViYXN0aWVuIExlcmF0IiwiZW1haWwiOiJqZWFuLXNlYmFzdGllbi5sZXJhdEBoZWguYmUiLCJpYXQiOjE1MTYyMzkwMjJ9.Br4bcqtm1oK5ZMh3pLAqzE6LL5o6-MC9GHESNyw3K7A
+Authorization: Bearer <token>
 
 {
-    "firstname": "Jambon-Fromage",
-    "lastname": "Lerat",
-    "email": "jean-sebastien.lerat@heh.be"
+    "firstname": "Firstname",
+    "lastname": "lastname",
+    "email": "mail"
 }
 
 

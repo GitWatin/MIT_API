@@ -1,5 +1,5 @@
 POST http://localhost:8080/gcc
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikd1aWxsYXVtZSBRdWl0dGV0IiwiZW1haWwiOiJndWlsbGF1bWUucXVpdHRldEBnbWFpbC5jb20iLCJpYXQiOjE1MTYyMzkwMjJ9.n8tWHvSIN_wTNYiMn-wVyf_iYFkIWmgJzZ12_ylVOoA
+Authorization: Bearer <token>
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
