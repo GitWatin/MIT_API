@@ -15,8 +15,10 @@
     <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate">
   </a>
 
-
+---
 <p align="center">
+<img src="https://www.valdenis.be/images/icones/heh_tech.png" width=40% alt="Version">
+</br>
   Academic project to provide C/C++/ASM Compiler in NodeJS
 </p>
 </p>
