@@ -27,9 +27,17 @@
 
 # BackEnd
 ## Requirements
+- Software
 
-✔ NodeJS >= 12.20.0
+  ✔ NodeJS >= 12.20.0
+</br>
 
+- Hardware (Minimal)
+
+  ✔ OS : Linux (Centos7)
+  ✔ RAM : 2 Gb
+  ✔ CPU : 1 vCore
+  ✔ SSD : 20 Gb
 ## Dependencies
 
 ```bash
