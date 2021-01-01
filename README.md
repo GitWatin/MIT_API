@@ -34,10 +34,10 @@
 
 - Hardware (Minimal)
 
-  ✔ OS : Linux (Centos7)
-  ✔ RAM : 2 Gb
-  ✔ CPU : 1 vCore
-  ✔ SSD : 20 Gb
+  ✔ OS : Linux (Centos7)</br>
+  ✔ RAM : 2 Gb</br>
+  ✔ CPU : 1 vCore</br>
+  ✔ SSD : 20 Gb</br>
 ## Dependencies
 
 ```bash
