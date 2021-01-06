@@ -89,6 +89,7 @@ To compile the file, place it in the compilation folder and add it to the creden
 
 PathToCompile:
   path: 'Path_To_File_'
+  # Example
   #D:\compiler\main.asm
 ```
 
